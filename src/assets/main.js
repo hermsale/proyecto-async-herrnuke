@@ -49,11 +49,11 @@ async function fetchData(urlApi){
                 </div>
                 <div class="mt-4 flex justify-between">
                     <h3 class="text-sm  text-neutral-300">
-                        <a href="https://www.youtube.com/watch?v=${video.id.videoId}" onclick=console.log('entra a la lista de videos en YT') target="_blank">
+                        <a href="https://www.youtube.com/watch?v=${video.id.videoId}" target="_blank">
                         <span aria-hidden="true" class="absolute inset-0">
                         </span>
                         </a>
-                        ${video.snippet.title}   <br>  
+                        ${video.snippet.title} <br>  
                         ${video.snippet.description}
                     </h3>
                 </div>
