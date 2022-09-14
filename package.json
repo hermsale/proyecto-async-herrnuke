@@ -4,7 +4,7 @@
   "description": "Creamos este proyecto como parte del curso de Asincronismo en JS en la escuela de Platzi",
   "main": "index.js",
   "scripts": {
-    "deploy": "gh-pages -d src"
+    "deploy-gh": "gh-pages -d src"
   },
   "repository": {
     "type": "git",
