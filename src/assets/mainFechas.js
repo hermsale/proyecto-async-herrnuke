@@ -1,7 +1,48 @@
 
-// claves instagram 
-const appId = '3373431092940569';
-const appSecret = '665d182c8bc0852f494910f6d9cdea78';
-const token = 'IGQVJVZAWt1REJlRG5aLXVjLXZAvRzh3aFpxeXFNd1JJeENZAcFFzSEczWEt5dTE2bVpiZADZAFaTNrVS03RDkwNkhndTc2WEs0bWwxNVFqZA2k2TmZAGRGcyQ3NVd19oYkNYYWphRW5SeVR6VmFvbm1RVTkyRQZDZD';
+const BASE_API = 'https://graph.instagram.com/me'
+const ACCESS_TOKEN = 'IGQVJXOC1WUzhxbl9rTkx5SWlyeEFBdlJERjNhMkhtRXV5eHRJdE0xZAGpOUlBzdTRxRTRDNjRuQ3RaVFJLNnBlUWt0dFRkNEk0aXh6bFptUXRZAM00xWlZAJV3ctZAFppRjktU1FjZAU5ib3pXSl9EYmY5M3FiRnFKRXpCNGlJ';
 
-const contentInstagram = document.getElementById('contentInstagram');
+const URL = `${BASE_API}?fields=id,media_url,permalink&access_token=${ACCESS_TOKEN}`;
+
+const contentInstagram = null || document.getElementById('contentInstagram');
+const body = document.querySelector('body');
+
+const username = document.getElementById('username');
+
+async function getUserInfo() {
+	const response = await fetch(`${BASE_API}?fields=username,media_count&access_token=${ACCESS_TOKEN}`)
+	const userInfo = await response.json()
+	console.log(userInfo)
+
+	username.innerHTML = userInfo.username;
+	return userInfo
+  }
+  
+  getUserInfo()
+
+  async function getUserMediaInfo() {
+	const response = await fetch(`${BASE_API}/media?fields=id,media_url&access_token=${ACCESS_TOKEN}`)
+	const userMediaInfo = await response.json()
+	console.log(userMediaInfo)
+	return userMediaInfo
+  }
+  
+getUserMediaInfo();
+
+getUserMediaInfo()
+	.then(media => {
+	let view = `
+	${media.data.map(posts => `
+	<div class="group relative" >
+		<div class="w-full bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none"> 
+			<img src="${posts.media_url}"class="w-full">
+		</div>
+	</div>
+	`).slice(0).join('')}`;
+	contentInstagram.innerHTML = view;
+  })
+
+//   const img = document.createElement('img')
+// 		img.style.width = '100%'
+// 		img.src = mediaInfo.media_url
+// 		contentInstagram.appendChild(img)
