@@ -41,8 +41,3 @@ getUserMediaInfo()
 	`).slice(0).join('')}`;
 	contentInstagram.innerHTML = view;
   })
-
-//   const img = document.createElement('img')
-// 		img.style.width = '100%'
-// 		img.src = mediaInfo.media_url
-// 		contentInstagram.appendChild(img)
