@@ -4,7 +4,7 @@
   "description": "Creamos este proyecto como parte del curso de Asincronismo en JS en la escuela de Platzi",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy-gh": "gh-pages -d src"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/hermsale/proyecto-async-herrnuke/issues"
   },
-  "homepage": "https://github.com/hermsale/proyecto-async-herrnuke#readme"
+  "homepage": "https://github.com/hermsale/proyecto-async-herrnuke#readme",
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  }
 }
