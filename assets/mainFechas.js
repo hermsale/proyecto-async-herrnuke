@@ -1,48 +1,43 @@
-// documentacion fc dev https://developers.facebook.com/apps/3373431092940569/instagram-basic-display/basic-display/
 
-// claves instagram 
-const appId = '3373431092940569';
-const appSecret = '665d182c8bc0852f494910f6d9cdea78';
-const token = 'IGQVJVZAWt1REJlRG5aLXVjLXZAvRzh3aFpxeXFNd1JJeENZAcFFzSEczWEt5dTE2bVpiZADZAFaTNrVS03RDkwNkhndTc2WEs0bWwxNVFqZA2k2TmZAGRGcyQ3NVd19oYkNYYWphRW5SeVR6VmFvbm1RVTkyRQZDZD';
+const BASE_API = 'https://graph.instagram.com/me'
+const ACCESS_TOKEN = 'IGQVJXOC1WUzhxbl9rTkx5SWlyeEFBdlJERjNhMkhtRXV5eHRJdE0xZAGpOUlBzdTRxRTRDNjRuQ3RaVFJLNnBlUWt0dFRkNEk0aXh6bFptUXRZAM00xWlZAJV3ctZAFppRjktU1FjZAU5ib3pXSl9EYmY5M3FiRnFKRXpCNGlJ';
 
-const contentInstagram = document.getElementById('contentInstagram');
+const URL = `${BASE_API}?fields=id,media_url,permalink&access_token=${ACCESS_TOKEN}`;
 
-const URL = `https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token&client_id=${appId}&client_secret=${appSecret}&fb_exchange_token=${token}`;
+const contentInstagram = null || document.getElementById('contentInstagram');
+const body = document.querySelector('body');
 
-console.log(URL);
+const username = document.getElementById('username');
 
-const API = 'https://instagram130.p.rapidapi.com/account-info?username=herrnuke'
+async function getUserInfo() {
+	const response = await fetch(`${BASE_API}?fields=username,media_count&access_token=${ACCESS_TOKEN}`)
+	const userInfo = await response.json()
+	console.log(userInfo)
 
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '6a058f4537msh591192a9a68ae4bp1b0a6fjsn310795b2c879',
-		'X-RapidAPI-Host': 'instagram130.p.rapidapi.com'
-	}
-};
+	username.innerHTML = userInfo.username;
+	return userInfo
+  }
+  
+  getUserInfo()
 
+  async function getUserMediaInfo() {
+	const response = await fetch(`${BASE_API}/media?fields=id,media_url&access_token=${ACCESS_TOKEN}`)
+	const userMediaInfo = await response.json()
+	console.log(userMediaInfo)
+	return userMediaInfo
+  }
+  
+getUserMediaInfo();
 
-
-
-// fetch(API, options)
-// 	.then(response => response.json())
-// 	.then(response => console.log(response))
-// 	.catch(err => console.error(err));
-
-// async function fetchData(urlApi){
-//     const response = await fetch(urlApi,options);
-//     const data = await response.json();
-// 	console.log(data);
-//     return data;
-// }
-
-// fetchData(API);
-
-// (async () =>{
-// 	try{
-// 		const postInstagram = await fetchData(API);
-// 		let view = `
-// 		// ${postInstagram.items.map}
-// 		`
-// 	}
-// })
+getUserMediaInfo()
+	.then(media => {
+	let view = `
+	${media.data.map(posts => `
+	<div class="group relative" >
+		<div class="w-full bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:aspect-none"> 
+			<img src="${posts.media_url}"class="w-full">
+		</div>
+	</div>
+	`).slice(0).join('')}`;
+	contentInstagram.innerHTML = view;
+  })
