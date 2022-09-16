@@ -1,6 +1,6 @@
 
 const BASE_API = 'https://graph.instagram.com/me';
-const ACCESS_TOKEN = 'IGQVJXLWo5ajZApX0R2YzloZAGlQM0h5Njl3dThJZAXRuc2t3OS1WX0pSTlBnbXhSSktFMU8tT29iLTlTeERsbmg2TkdvYkx2ekxzMnZA0ZAk1aV0hkdldkVGpiTVVPeU5fWml1Nm5VRzE1N1BteDM5bjcyUwZDZD';
+const ACCESS_TOKEN = 'IGQVJVdlFrNUwyV09CSUVQT1k2OVNBeEhMZAUJhUEtOR2NZAYVRQTG1zbkpEZAlA5b2xkVTRpMFFaYUctbUs4ZAm5vNFBMRzZAWN0tmeDRvTHJ6cXhBX0NWelFpbWNBT0N5OWRHcTlneGMyOW1XV0p1VWYtNgZDZD';
 
 const URLProfile = `${BASE_API}?fields=username,media_count&access_token=${ACCESS_TOKEN}`;
 const URLMedia = `${BASE_API}/media?fields=id,media_url,permalink&access_token=${ACCESS_TOKEN}`;
@@ -41,4 +41,15 @@ getUserMediaInfo()
 	</div>
 	`).slice(0).join('')}`;
 	contentInstagram.innerHTML = view;
+  }).catch(error =>{
+	let viewError = `
+	<div style="background-color:#404040; color:white"> 
+            <h1> Ocurrio un error! Estamos trabajando en ello... </h1>
+            <span class="block xl:inline">Recuerda visitarnos en: </span>
+            <span class="block xl:inline">IG</span>
+            <span class="block text-indigo-600 xl:inline" style="color:white">@Herrnuke</span>
+    </div>
+	`;
+	console.log(error)
+	contentInstagram.innerHTML = viewError;
   })
