@@ -1,7 +1,10 @@
-const BASE_API = 'https://graph.instagram.com/me'
-const ACCESS_TOKEN = 'IGQVJWc1dNRTU2azJrekl3X0tuSXdUcG5Ba1JMd2h2dTlUSkRmX3RHX2xvN2ZAyTVh5djN5ekdMRHV6NXFaWUp0OUhNdTZAUQlpZAbUtFcWx5d3QxZA2EteWhxdlh5M3g5VmhRdlVsYnI4T21VN2pJRmhtUlp1TEV3YW1ZAcnJj';
 
-const URL = `${BASE_API}?fields=id,media_url,permalink&access_token=${ACCESS_TOKEN}`;
+const BASE_API = 'https://graph.instagram.com/me';
+const ACCESS_TOKEN = 'IGQVJXUHJ3ems2LVR0RFZAuQmRFYUdjelRaNDF3SGpQN0hnOHhKQktDS19Kd2I1c3o5elNXSXQyTnozQ2JKVGRYblRfVU43eGEzUlVVdVZAXbVA3TmpETDNqZAURQUEJoQlJiRmpzS0QwLVdoUVdGUDZANWgZDZD';
+
+const URLProfile = `${BASE_API}?fields=username,media_count&access_token=${ACCESS_TOKEN}`;
+const URLMedia = `${BASE_API}/media?fields=id,media_url,permalink&access_token=${ACCESS_TOKEN}`;
+
 
 const contentInstagram = null || document.getElementById('contentInstagram');
 const body = document.querySelector('body');
@@ -9,7 +12,7 @@ const body = document.querySelector('body');
 const username = document.getElementById('username');
 
 async function getUserInfo() {
-	const response = await fetch(`${BASE_API}?fields=username,media_count&access_token=${ACCESS_TOKEN}`)
+	const response = await fetch(URLProfile)
 	const userInfo = await response.json()
 	console.log(userInfo)
 
@@ -20,13 +23,12 @@ async function getUserInfo() {
   getUserInfo()
 
   async function getUserMediaInfo() {
-	const response = await fetch(`${BASE_API}/media?fields=id,media_url&access_token=${ACCESS_TOKEN}`)
+	const response = await fetch(URLMedia)
 	const userMediaInfo = await response.json()
 	console.log(userMediaInfo)
 	return userMediaInfo
   }
   
-getUserMediaInfo();
 
 getUserMediaInfo()
 	.then(media => {
