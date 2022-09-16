@@ -1,8 +1,8 @@
 {
   "name": "proyecto-async-herrnuke",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Creamos este proyecto como parte del curso de Asincronismo en JS en la escuela de Platzi",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "deploy-gh": "gh-pages -d src"
   },
