@@ -1,6 +1,6 @@
 {
   "name": "proyecto-async-herrnuke",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Creamos este proyecto como parte del curso de Asincronismo en JS en la escuela de Platzi",
   "main": "index.js",
   "scripts": {
