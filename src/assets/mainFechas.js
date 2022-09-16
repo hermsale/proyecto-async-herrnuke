@@ -1,6 +1,6 @@
 
 const BASE_API = 'https://graph.instagram.com/me';
-const ACCESS_TOKEN = 'IGQVJVZAzhTd203bkg4RF9iaHQ1S1ZAQdnVxYlpZAenNScEhCd0w2WHpWS2JBaWZAmYU9YeFg2TXZAaLXNfUW8xV29FWFgyN3BpM0tkWXFHSXlyS0lmY2lSM2loejhKcF9YQ3E2TEFPMUxNWE5vNTB0blZA2UQZDZD';
+const ACCESS_TOKEN = 'IGQVJYaEZAXcklOM28ycmRPZAmlNM1YtT3NvMWprOHBRNUdfZAXVrNm5XNERNdFVXRGhwT0FaWkZAxRUtka3RKWUc0WTltVExfTzYyWUwxQUh1NEtjdDZADZA2c2eWZAxcEE5b2dEQ1FqZAXp5VEh5NlFMSm9iRwZDZD';
 
 const URLProfile = `${BASE_API}?fields=username,media_count&access_token=${ACCESS_TOKEN}`;
 const URLMedia = `${BASE_API}/media?fields=id,media_url,permalink&access_token=${ACCESS_TOKEN}`;
