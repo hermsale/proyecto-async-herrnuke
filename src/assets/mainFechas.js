@@ -1,4 +1,3 @@
-
 const BASE_API = 'https://graph.instagram.com/me'
 const ACCESS_TOKEN = 'IGQVJXOC1WUzhxbl9rTkx5SWlyeEFBdlJERjNhMkhtRXV5eHRJdE0xZAGpOUlBzdTRxRTRDNjRuQ3RaVFJLNnBlUWt0dFRkNEk0aXh6bFptUXRZAM00xWlZAJV3ctZAFppRjktU1FjZAU5ib3pXSl9EYmY5M3FiRnFKRXpCNGlJ';
 
