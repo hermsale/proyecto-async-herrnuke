@@ -45,9 +45,12 @@ getUserMediaInfo()
 	let viewError = `
 	<div style="background-color:#404040; color:white"> 
             <h1> Ocurrio un error! Estamos trabajando en ello... </h1>
-            <span class="block xl:inline">Recuerda visitarnos en: </span>
-            <span class="block xl:inline">IG</span>
+            <span class="block xl:inline">Recuerda visitarnos en </span>
+            <span class="block xl:inline">Instagram</span>
+			<a href="https://www.instagram.com/herrnuke/" target="_blank">
             <span class="block text-indigo-600 xl:inline" style="color:white">@Herrnuke</span>
+        
+      </a>
     </div>
 	`;
 	console.log(error)
